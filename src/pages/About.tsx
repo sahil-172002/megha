@@ -248,64 +248,70 @@ export function About() {
                 </section>
 
                 {/* Journey Timeline */}
-                <section className="py-16 md:py-24 bg-white">
-                    <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-12">
+                <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden">
+                    <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-12 relative z-10">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-center mb-16"
+                            className="text-center mb-16 md:mb-24"
                         >
-                            <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 text-sm font-semibold rounded-full mb-4">
+                            <span className="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-full mb-4">
                                 Our Journey
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                                 Milestones Through The Years
                             </h2>
+                            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+                                From a small shop to a district leader, our path has been defined by consistency and growth.
+                            </p>
                         </motion.div>
 
                         <div className="relative">
-                            {/* Timeline line */}
-                            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 -ml-px md:ml-0"></div>
+                            {/* Center Line (Desktop) */}
+                            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500/0 via-emerald-300 to-emerald-500/0 md:-translate-x-1/2 h-full"></div>
 
-                            <div className="space-y-12">
+                            <div className="space-y-12 md:space-y-24">
                                 {timeline.map((item, index) => (
-                                    <motion.div
+                                    <div
                                         key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                                        className={`relative flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                                     >
-                                        <div className="flex-1 md:text-right">
-                                            {index % 2 === 0 && (
-                                                <div className="hidden md:block">
-                                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                                                    <p className="text-slate-600">{item.description}</p>
-                                                </div>
-                                            )}
-                                            <div className="md:hidden pl-20">
-                                                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                                                <p className="text-slate-600">{item.description}</p>
-                                            </div>
+                                        {/* Date Marker (Mobile) */}
+                                        <div className="absolute left-8 -translate-x-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-white shadow-md md:hidden top-8 z-20"></div>
+
+                                        {/* Content Side */}
+                                        <div className="w-full md:w-1/2 pl-16 md:pl-0 md:px-10">
+                                            <motion.div
+                                                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.5, delay: 0.1 }}
+                                                className={`bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg hover:shadow-emerald-100/50 transition-all duration-300 relative group text-left ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}
+                                            >
+                                                {/* Arrow for Desktop */}
+                                                <div className={`hidden md:block absolute top-[45%] w-4 h-4 bg-white border-t border-r border-slate-100 transform rotate-45 z-0 ${index % 2 === 0 ? '-right-2.5 border-l-0 border-b-0' : '-left-2.5 border-r-0 border-t-0 border-b border-l'}`}></div>
+
+                                                <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-bold rounded-lg mb-3">
+                                                    {item.year}
+                                                </span>
+                                                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-slate-500 leading-relaxed font-medium">
+                                                    {item.description}
+                                                </p>
+                                            </motion.div>
                                         </div>
 
-                                        <div className="absolute left-0 md:relative md:left-auto flex-shrink-0 w-16 h-16 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center z-10 shadow-md">
-                                            <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-inner">
-                                                {item.year}
-                                            </div>
+                                        {/* Center Marker (Desktop) */}
+                                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full border-4 border-emerald-100 items-center justify-center z-10 shadow-sm">
+                                            <div className="w-4 h-4 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
                                         </div>
 
-                                        <div className="flex-1">
-                                            {index % 2 !== 0 && (
-                                                <div className="hidden md:block">
-                                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                                                    <p className="text-slate-600">{item.description}</p>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </motion.div>
+                                        {/* Empty Side for alignment */}
+                                        <div className="w-full md:w-1/2 hidden md:block"></div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
