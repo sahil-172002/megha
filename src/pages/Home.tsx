@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Tv, Phone, ArrowRight } from 'lucide-react'
+import { Zap, Phone, ArrowRight } from 'lucide-react'
 import { ProductCard } from '../components/ProductCard'
 import { featuredProducts } from '../data/products'
 import { Header } from '../components/Header'
@@ -37,16 +37,19 @@ export function Home() {
                             className="text-center"
                         >
                             {/* Trust Badge */}
-                            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white rounded-full border border-slate-200/80 shadow-sm mb-8 max-w-full">
-                                <div className="w-2 h-2 shrink-0 bg-emerald-500 rounded-full animate-pulse"></div>
-                                <span className="text-xs sm:text-sm font-medium text-slate-600 truncate">Trusted by 1 Lakh+ Farmers Since 1992</span>
-                            </div>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/80 backdrop-blur-md rounded-full border border-slate-200/60 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.07)] mb-8 max-w-full"
+                            >
+                                <div className="w-2 h-2 shrink-0 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-600 truncate">TRUSTED BY 1 LAKH+ FARMERS SINCE 1992</span>
+                            </motion.div>
 
                             {/* Headline */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-[1.15] md:leading-[1.1] tracking-tight mb-6">
-                                Reliable Motor Protection
-                                <br className="hidden sm:block" />
-                                <span className="text-emerald-600 block sm:inline mt-2 sm:mt-0"> for Indian Farms</span>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 tracking-tight mb-6">
+                                Reliable Motor Protection <span className="text-emerald-600">for Indian Farms</span>
                             </h1>
 
                             {/* Description */}
@@ -56,11 +59,14 @@ export function Home() {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 px-4">
-                                <button className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold text-base hover:bg-slate-800 transition-all duration-200 shadow-lg shadow-slate-900/10 w-full sm:w-auto">
-                                    <Phone size={18} />
-                                    Get a Quote
+                                <a
+                                    href="tel:+919423857496"
+                                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-base shadow-xl shadow-slate-900/10 hover:bg-emerald-600 transition-all duration-300 w-full sm:w-auto"
+                                >
+                                    <Phone size={18} className="animate-pulse" />
+                                    Call Now
                                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
                                 <Link
                                     to="/products"
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-700 rounded-xl font-semibold text-base border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 w-full sm:w-auto"
@@ -88,24 +94,6 @@ export function Home() {
                     </div>
                 </section>
 
-                {/* Authorized Partners */}
-                <section className="py-12 md:py-16 bg-white border-b border-slate-100">
-                    <div className="container mx-auto px-4">
-                        <div className="flex flex-col items-center gap-8 md:gap-10">
-                            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-slate-400 relative px-4 after:content-[''] after:hidden sm:after:block after:absolute after:top-1/2 after:left-full after:w-10 after:h-[1px] after:bg-slate-200 after:ml-4 before:content-[''] before:hidden sm:before:block before:absolute before:top-1/2 before:right-full before:w-10 before:h-[1px] before:bg-slate-200 before:mr-4">
-                                Authorized Sales & Service Partner
-                            </span>
-                            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-20">
-                                {['Samsung', 'LG', 'Havells', 'Polycab', 'Bajaj'].map((brand) => (
-                                    <span key={brand} className="font-display text-xl md:text-2xl font-bold text-slate-300 hover:text-emerald-600 transition-colors cursor-default">
-                                        {brand}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 {/* Specialization */}
                 <section className="py-16 md:py-24 bg-white" id="products">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -117,92 +105,64 @@ export function Home() {
                                 transition={{ duration: 0.5 }}
                             >
                                 <span className="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-700 text-xs sm:text-sm font-semibold rounded-full mb-4">
-                                    What We Do
+                                    Our Expertise
                                 </span>
                                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-                                    Our Specialization
+                                    Core Specialization
                                 </h2>
                                 <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto">
-                                    Dual expertise in industrial solutions and modern home electronics
+                                    Engineering high-performance industrial solutions for Indian agriculture
                                 </p>
                             </motion.div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                            {/* Card 1 - Industrial Auto Switches */}
+                        <div className="max-w-5xl mx-auto">
+                            {/* Horizontal Industrial Auto Switches Card */}
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.1 }}
-                                className="group relative bg-gradient-to-br from-slate-50 to-white p-6 md:p-8 rounded-2xl border border-slate-200/80 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 hover:-translate-y-1"
+                                transition={{ duration: 0.6 }}
+                                className="group relative bg-white p-8 md:p-10 rounded-[2rem] border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-emerald-200/60 transition-all duration-500 overflow-hidden"
                             >
-                                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
-                                    <Zap size={26} className="text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                                    Industrial Auto Switches
-                                </h3>
-                                <p className="text-slate-500 leading-relaxed mb-6 text-sm md:text-base">
-                                    Megha Auto Switch panels for 3HP to 7.5HP motors. Digital protection with heavy-duty build quality.
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {['DOL Motor Support', 'Fault Protection', 'Panel Boards'].map(tag => (
-                                        <span key={tag} className="px-3 py-1.5 bg-emerald-50 text-emerald-700 text-xs md:text-sm font-medium rounded-full">{tag}</span>
-                                    ))}
-                                </div>
-                            </motion.div>
+                                {/* Decorative Background Elements */}
+                                <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-50 rounded-full blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 -mr-20 -mt-20"></div>
+                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-50 rounded-full blur-[60px] opacity-0 group-hover:opacity-30 transition-opacity duration-700 -ml-20 -mb-20"></div>
 
-                            {/* Card 2 - Consumer Electronics */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                className="group relative bg-gradient-to-br from-slate-50 to-white p-6 md:p-8 rounded-2xl border border-slate-200/80 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-1"
-                            >
-                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform duration-300">
-                                    <Tv size={26} className="text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                    Consumer Electronics
-                                </h3>
-                                <p className="text-slate-500 leading-relaxed mb-6 text-sm md:text-base">
-                                    Latest televisions, refrigerators, and home appliances from trusted global brands.
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {['Smart TVs', 'Refrigeration', 'Air Conditioners'].map(tag => (
-                                        <span key={tag} className="px-3 py-1.5 bg-blue-50 text-blue-700 text-xs md:text-sm font-medium rounded-full">{tag}</span>
-                                    ))}
-                                </div>
-                            </motion.div>
+                                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                                    <div className="w-20 h-20 md:w-24 md:h-24 bg-slate-900 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-emerald-600 transition-all duration-500 shrink-0">
+                                        <Zap size={36} className="text-white" />
+                                    </div>
 
-                            {/* Card 3 - Electrical Wiring */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                                className="group relative bg-gradient-to-br from-slate-50 to-white p-6 md:p-8 rounded-2xl border border-slate-200/80 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-100/50 transition-all duration-300 hover:-translate-y-1 md:col-span-2 lg:col-span-1"
-                            >
-                                <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25 group-hover:scale-110 transition-transform duration-300">
-                                    <ShieldCheck size={26} className="text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">
-                                    Electrical Wiring
-                                </h3>
-                                <p className="text-slate-500 leading-relaxed mb-6 text-sm md:text-base">
-                                    Premium copper cables and wiring solutions for safe, efficient power distribution.
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {['Copper Wire', 'Industrial Grade', 'Home Wiring'].map(tag => (
-                                        <span key={tag} className="px-3 py-1.5 bg-amber-50 text-amber-700 text-xs md:text-sm font-medium rounded-full">{tag}</span>
-                                    ))}
+                                    <div className="flex-grow text-center md:text-left">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-emerald-700 transition-colors">
+                                            Industrial Auto Switches
+                                        </h3>
+                                        <p className="text-slate-500 leading-relaxed mb-6 text-base md:text-lg max-w-2xl font-medium">
+                                            Megha Auto Switch panels for 3HP to 7.5HP motors. Engineered with digital protection and heavy-duty components for maximum durability in harsh farm conditions.
+                                        </p>
+                                        <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
+                                            {['DOL Motor Support', 'Fault Protection', 'Panel Boards'].map(tag => (
+                                                <span key={tag} className="px-4 py-1.5 bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-100 group-hover:border-emerald-100 group-hover:bg-emerald-50/50 transition-colors whitespace-nowrap">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="shrink-0 w-full md:w-auto mt-4 md:mt-0">
+                                        <Link
+                                            to="/products"
+                                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-emerald-600 hover:shadow-[0_10px_20px_rgba(16,185,129,0.2)] transition-all duration-300 w-full md:w-auto overflow-hidden group/btn"
+                                        >
+                                            <span className="relative z-10">View Range</span>
+                                            <ArrowRight size={20} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                                        </Link>
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>
                     </div>
                 </section>
+
 
                 {/* Featured Products */}
                 <section className="py-16 md:py-24 bg-white">
@@ -263,16 +223,16 @@ export function Home() {
                                 { name: "राजेश पाटील", role: "शेतकरी, सोलापूर", text: "मेघा इलेक्ट्रॉनिक्सचे ऑटो स्विच पॅनल खूप भरवशाचे आहे. गेल्या ५ वर्षांपासून वापरतोय, कधी खराब झालं नाही!", rating: 5, color: "#10b981" },
                                 { name: "Suresh Kumar", role: "Retailer, Pune", text: "Best quality panels in the market. My customers always come back satisfied. Megha Electronics never disappoints!", rating: 5, color: "#3b82f6" },
                                 { name: "अमित शिंदे", role: "शेतकरी, कर्माळा", text: "३३ वर्षांचा अनुभव दिसतो. सर्व्हिस एकदम टॉप क्लास आहे. पंप कधी बंद पडला नाही.", rating: 5, color: "#f59e0b" },
-                                { name: "Priya Deshmukh", role: "Consumer, Mumbai", text: "Bought Samsung TV from here. Great prices and excellent after-sales service. Highly recommended!", rating: 5, color: "#ec4899" },
+                                { name: "Vijay Deshmukh", role: "Farmer, Sangli", text: "The digital protection on these panels saved my motor during high voltage. Highly recommended!", rating: 5, color: "#ec4899" },
                                 { name: "संजय जाधव", role: "डीलर, उस्मानाबाद", text: "मेघा ऑटो स्विच हे माझ्या दुकानातील सर्वात जास्त विकले जाणारे उत्पादन आहे. क्वालिटी भारी!", rating: 5, color: "#8b5cf6" },
                                 { name: "विकास मोरे", role: "इलेक्ट्रिशियन, बारामती", text: "१० वर्षांपासून मेघाचे प्रोडक्ट्स वापरतोय. कधी कंप्लेंट आली नाही कस्टमरची.", rating: 5, color: "#06b6d4" },
                             ].concat([
-                                { name: "राजेश पाटील", role: "शेतकरी, सोलापूर", text: "मेघा इलेक्ट्रॉनिक्सचे ऑटो स्विच पॅनल खूप भरवशाचे आहे. गेल्या ५ वर्षांपासून वापरतोय, कधी खराब झालं नाही!", rating: 5, color: "#10b981" },
-                                { name: "Suresh Kumar", role: "Retailer, Pune", text: "Best quality panels in the market. My customers always come back satisfied. Megha Electronics never disappoints!", rating: 5, color: "#3b82f6" },
-                                { name: "अमित शिंदे", role: "शेतकरी, कर्माळा", text: "३३ वर्षांचा अनुभव दिसतो. सर्व्हिस एकदम टॉप क्लास आहे. पंप कधी बंद पडला नाही.", rating: 5, color: "#f59e0b" },
-                                { name: "Priya Deshmukh", role: "Consumer, Mumbai", text: "Bought Samsung TV from here. Great prices and excellent after-sales service. Highly recommended!", rating: 5, color: "#ec4899" },
-                                { name: "संजय जाधव", role: "डीलर, उस्मानाबाद", text: "मेघा ऑटो स्विच हे माझ्या दुकानातील सर्वात जास्त विकले जाणारे उत्पादन आहे. क्वालिटी भारी!", rating: 5, color: "#8b5cf6" },
-                                { name: "विकास मोरे", role: "इलेक्ट्रिशियन, बारामती", text: "१० वर्षांपासून मेघाचे प्रोडक्ट्स वापरतोय. कधी कंप्लेंट आली नाही कस्टमरची.", rating: 5, color: "#06b6d4" },
+                                { name: "महेश कुलकर्णी", role: "शेतकरी, अहमदनगर", text: "पावसाळ्यात पण पंप चालू राहतो. वीज गेली तरी पॅनल सेफ राहतं. अशी क्वालिटी कुठे मिळत नाही.", rating: 5, color: "#059669" },
+                                { name: "Sunil Shinde", role: "Industrial Client, Solapur", text: "Purchased control panels for our facility. Robust build and perfect timing control. Great service!", rating: 5, color: "#db2777" },
+                                { name: "रामचंद्र गायकवाड", role: "शेतकरी, पंढरपूर", text: "आधी दुसऱ्या कंपनीचं वापरत होतो, पण मेघाचं एकदा वापरल्यावर बदललं नाही. भारी प्रोडक्ट!", rating: 5, color: "#7c3aed" },
+                                { name: "Deepak Traders", role: "Wholesale Dealer, Latur", text: "Been their dealer for 15 years. Consistent quality and excellent margin. Best brand for rural markets.", rating: 5, color: "#0891b2" },
+                                { name: "सुनील पवार", role: "शेतकरी, तुळजापूर", text: "७.५ HP मोटरसाठी पॅनल घेतलं. एकदम परफेक्ट काम करतंय. किंमत पण योग्य आहे.", rating: 5, color: "#ea580c" },
+                                { name: "Rekha Patil", role: "Shop Owner, Barshi", text: "Customer satisfaction is 100% with Megha products. No complaints in years of selling!", rating: 5, color: "#4f46e5" },
                             ]).map((testimonial: any, index: number) => (
                                 <div key={index} className="flex-shrink-0 w-[300px] md:w-[380px] mx-3">
                                     <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-lg shadow-slate-100/50 h-full">
@@ -386,8 +346,8 @@ export function Home() {
                                 <div className="relative aspect-square bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden p-2">
                                     <div className="absolute top-6 right-6 z-10 bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg">Since 1992</div>
                                     <img
-                                        src="/products/hero1.png"
-                                        alt="Megha Electronics Storefront"
+                                        src="/farmer.jpeg"
+                                        alt="Megha Electronics Supporting Farmers"
                                         className="w-full h-full object-cover rounded-xl"
                                     />
                                 </div>
@@ -406,10 +366,13 @@ export function Home() {
                                     Experience our products firsthand at our Karmala location
                                 </p>
                             </div>
-                            <button className="flex items-center gap-3 px-6 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-100 transition-colors shrink-0 w-full md:w-auto justify-center">
-                                <Phone size={20} />
+                            <a
+                                href="tel:+919423857496"
+                                className="flex items-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-xl font-black shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 shrink-0 w-full md:w-auto justify-center"
+                            >
+                                <Phone size={20} className="text-emerald-600" />
                                 +91 94238 57496
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </section>

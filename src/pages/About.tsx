@@ -84,20 +84,20 @@ export function About() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm mb-8 mx-auto">
-                                <span className="flex h-2 w-2 relative">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md mb-10 mx-auto shadow-2xl">
+                                <span className="flex h-2.5 w-2.5 relative">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span>
                                 </span>
-                                <span className="text-xs sm:text-sm font-medium text-white">Our Story Since 1992</span>
+                                <span className="text-xs sm:text-sm font-extrabold text-white tracking-[0.2em] uppercase">OUR STORY SINCE 1992</span>
                             </div>
 
-                            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-                                About Megha Electronics
+                            <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-8 tracking-tighter">
+                                Megha <span className="text-emerald-400">Electronics</span>
                             </h1>
-                            <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto mb-16 px-4 leading-relaxed">
+                            <p className="text-lg sm:text-xl lg:text-2xl text-emerald-50 max-w-3xl mx-auto mb-20 px-4 leading-relaxed font-medium">
                                 For over three decades, we've been Karmala's trusted destination for industrial auto switches,
-                                electrical components, and premium consumer electronics. Our journey is built on quality, trust, and community.
+                                electrical components, and agricultural innovation.
                             </p>
                         </motion.div>
 
@@ -139,11 +139,11 @@ export function About() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 text-xs sm:text-sm font-semibold rounded-full mb-6">
-                                    Our Legacy
+                                <span className="inline-block px-4 py-1.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-md mb-8 shadow-lg shadow-slate-900/10">
+                                    OUR LEGACY
                                 </span>
-                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                                    Built on Trust,<br />Grown with Community
+                                <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tighter">
+                                    Built on Trust,<br /><span className="text-emerald-600">Grown with Community</span>
                                 </h2>
                                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                                     Founded in 1992 by <strong>Mr. Dinesh Vallabhdas Devi</strong>, Megha Electronics

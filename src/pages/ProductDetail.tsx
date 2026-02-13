@@ -48,7 +48,7 @@ export function ProductDetail() {
     }
 
     const handleWhatsAppClick = () => {
-        const message = `Hi, I'm interested in ${product.name} (₹${product.price.toLocaleString('en-IN')})`
+        const message = `Hi, I'm interested in knowing the price for ${product.name}.`
         const phone = '919423857496'
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank')
     }
@@ -173,17 +173,16 @@ export function ProductDetail() {
                                     </p>
                                 </div>
 
-                                {/* Price Card */}
+                                {/* Interest Card */}
                                 <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <div>
-                                        <p className="text-sm text-slate-500 font-medium mb-1">Best Price</p>
+                                        <p className="text-sm text-slate-500 font-medium mb-1">Pricing</p>
                                         <div className="flex items-baseline gap-1">
-                                            <span className="text-lg text-slate-900 font-semibold">₹</span>
-                                            <span className="text-4xl font-bold text-slate-900 tracking-tight">{product.price.toLocaleString('en-IN')}</span>
+                                            <span className="text-2xl font-bold text-emerald-600 tracking-tight">Contact for Price</span>
                                         </div>
                                     </div>
                                     <div className="text-left sm:text-right p-3 bg-emerald-50 rounded-xl sm:bg-transparent sm:p-0">
-                                        <p className="text-xs text-slate-500 sm:text-slate-400">Inclusive of all taxes</p>
+                                        <p className="text-xs text-slate-500 sm:text-slate-400">Custom quotes available</p>
                                         <p className="text-xs text-emerald-700 sm:text-emerald-600 font-bold sm:font-medium">Free delivery within Karmala</p>
                                     </div>
                                 </div>

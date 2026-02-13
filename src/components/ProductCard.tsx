@@ -10,11 +10,11 @@ interface ProductCardProps {
     description: string
 }
 
-export function ProductCard({ id, name, category, price, image, description }: ProductCardProps) {
+export function ProductCard({ id, name, category, image, description }: ProductCardProps) {
     const handleWhatsAppClick = (e: React.MouseEvent) => {
         e.preventDefault()
         e.stopPropagation()
-        const message = `Hi, I'm interested in ${name} (₹${price.toLocaleString('en-IN')})`
+        const message = `Hi, I'm interested in knowing the price for ${name}.`
         const phone = '919423857496'
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank')
     }
@@ -43,27 +43,26 @@ export function ProductCard({ id, name, category, price, image, description }: P
 
             {/* Content Container */}
             <div className="flex flex-col flex-grow p-6">
-                <div className="mb-4">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2 line-clamp-1 group-hover:text-emerald-600 transition-colors">
+                <div className="mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2.5 line-clamp-1 group-hover:text-emerald-700 transition-colors tracking-tight">
                         {name}
                     </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed line-clamp-2 h-10">
+                    <p className="text-sm text-slate-500 leading-relaxed line-clamp-2 h-10 font-medium whitespace-pre-wrap">
                         {description}
                     </p>
                 </div>
 
                 {/* Footer pinned to bottom */}
-                <div className="mt-auto pt-5 border-t border-slate-50 flex items-center justify-between gap-3">
+                <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between gap-3">
                     <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-wide font-bold text-slate-400">Price</span>
-                        <div className="flex items-baseline gap-0.5">
-                            <span className="text-sm font-semibold text-slate-500">₹</span>
-                            <span className="text-xl font-bold text-slate-900">{price.toLocaleString('en-IN')}</span>
+                        <span className="text-[10px] uppercase tracking-[0.1em] font-extrabold text-slate-400 mb-0.5">AVAILABILITY</span>
+                        <div className="flex items-baseline gap-1">
+                            <span className="text-sm font-bold text-emerald-600">Contact for Price</span>
                         </div>
                     </div>
 
                     <button
-                        className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-semibold shadow-md shadow-slate-900/10 group-hover:bg-emerald-600 group-hover:shadow-emerald-600/20 transition-all duration-300 transform active:scale-95"
+                        className="flex items-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold shadow-lg shadow-slate-900/10 hover:bg-emerald-600 hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
                         onClick={handleWhatsAppClick}
                     >
                         <Phone size={16} />

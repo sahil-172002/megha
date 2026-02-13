@@ -49,34 +49,34 @@ export function Products() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <span className="inline-block px-4 py-1.5 bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-full mb-6 border border-white/30 backdrop-blur-sm">
-                                Quality Products Since 1992
+                            <span className="inline-block px-4 py-2 bg-white/10 text-white text-xs sm:text-sm font-bold uppercase tracking-[0.2em] rounded-full mb-8 border border-white/20 backdrop-blur-md">
+                                PREMIER AGRICULTURAL SOLUTIONS
                             </span>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 tracking-tighter">
                                 Our Products
                             </h1>
-                            <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto px-4 leading-relaxed">
-                                Browse our complete range of industrial panels, auto switches, and electrical components
+                            <p className="text-lg sm:text-xl lg:text-2xl text-emerald-50 max-w-2xl mx-auto px-4 leading-relaxed font-medium">
+                                Engineered for durability. Trusted for generations.
                             </p>
                         </motion.div>
                     </div>
                 </section>
 
                 {/* Filters */}
-                <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm">
+                <section className="sticky top-[72px] md:top-[88px] z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 py-5 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] transition-all duration-300">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                            <div className="flex items-center gap-2 text-slate-700 font-bold shrink-0">
-                                <Filter size={18} />
-                                <span>Filter By:</span>
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div className="flex items-center gap-3 text-slate-900 font-extrabold text-sm uppercase tracking-widest shrink-0">
+                                <Filter size={18} className="text-emerald-600" />
+                                <span>Filter By</span>
                             </div>
-                            <div className="flex flex-wrap gap-2 w-full overflow-x-auto pb-2 md:pb-0 no-scrollbar touch-pan-x">
+                            <div className="flex flex-wrap justify-center gap-3 w-full md:w-auto">
                                 {categories.map((category) => (
                                     <button
                                         key={category}
-                                        className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${selectedCategory === category
-                                            ? 'bg-emerald-600 text-white shadow-md shadow-emerald-200'
-                                            : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                                        className={`px-6 py-2.5 rounded-xl text-sm font-bold tracking-tight transition-all duration-300 ${selectedCategory === category
+                                            ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/10 -translate-y-0.5'
+                                            : 'bg-white text-slate-500 border border-slate-200 hover:border-emerald-500/30 hover:text-emerald-600 hover:bg-emerald-50/30'
                                             }`}
                                         onClick={() => setSelectedCategory(category)}
                                     >

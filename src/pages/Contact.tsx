@@ -41,14 +41,14 @@ export function Contact() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <span className="inline-block px-4 py-1.5 bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-full mb-6 border border-white/30 backdrop-blur-sm">
-                                We're Here to Help
+                            <span className="inline-block px-5 py-2.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md mb-8 mx-auto shadow-2xl">
+                                <span className="text-xs sm:text-sm font-black text-white tracking-[0.3em] uppercase">WE'RE HERE TO HELP</span>
                             </span>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                                Get in Touch
+                            <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-8 tracking-tighter">
+                                Get In <span className="text-emerald-400">Touch</span>
                             </h1>
-                            <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto px-4 leading-relaxed">
-                                Visit our showroom in Karmala or reach out to us for any inquiries about our products and services
+                            <p className="text-lg sm:text-xl lg:text-2xl text-emerald-50 max-w-2xl mx-auto px-4 leading-relaxed font-medium">
+                                Visit our flagship showroom in Karmala or connect with us digitally.
                             </p>
                         </motion.div>
                     </div>
@@ -122,27 +122,30 @@ export function Contact() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="group bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 md:col-span-2 lg:col-span-1"
+                                className="group bg-slate-900 rounded-[2rem] p-8 md:p-10 shadow-2xl shadow-slate-900/40 border border-slate-800 hover:-translate-y-1 transition-all duration-500 md:col-span-2 lg:col-span-1 overflow-hidden relative"
                             >
-                                <div className="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-                                    <Clock size={24} className="text-emerald-600 md:w-7 md:h-7" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Business Hours</h3>
-                                <div className="space-y-3 w-full border-t border-slate-100 pt-4 text-sm md:text-base">
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-slate-600">Mon - Sat</span>
-                                        <span className="font-bold text-slate-900">10:00 AM - 8:00 PM</span>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                                <div className="relative z-10">
+                                    <div className="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-emerald-500/20">
+                                        <Clock size={28} className="text-white" />
                                     </div>
-                                    <div className="flex justify-between items-center text-sm md:text-base">
-                                        <span className="text-slate-600">Sunday</span>
-                                        <span className="font-bold text-slate-900">10:00 AM - 1:30 PM</span>
+                                    <h3 className="text-2xl font-black text-white mb-6 tracking-tight">Business Hours</h3>
+                                    <div className="space-y-4 w-full border-t border-white/10 pt-6">
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-slate-400 font-medium">Mon - Sat</span>
+                                            <span className="font-bold text-white">10:00 AM - 8:00 PM</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-slate-400 font-medium">Sunday</span>
+                                            <span className="font-bold text-white">10:00 AM - 1:30 PM</span>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium pt-3 mt-2 border-t border-slate-100">
-                                        <span className="relative flex h-2.5 w-2.5">
+                                    <div className="flex items-center gap-3 text-emerald-400 text-sm font-black uppercase tracking-widest pt-8 mt-4 border-t border-white/10">
+                                        <span className="relative flex h-3 w-3">
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                                         </span>
-                                        Open now
+                                        OPEN NOW
                                     </div>
                                 </div>
                             </motion.div>

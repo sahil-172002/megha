@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Clock, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, Instagram } from 'lucide-react'
 
 export function Footer() {
     return (
@@ -15,6 +15,17 @@ export function Footer() {
                             Quality electronics and industrial solutions since 1992.
                             <br />Serving Karmala and beyond.
                         </p>
+                        <div className="flex items-center gap-4 mt-2">
+                            <a
+                                href="https://www.instagram.com/megha_autoswitch/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all duration-300"
+                                aria-label="Follow us on Instagram"
+                            >
+                                <Instagram size={18} />
+                            </a>
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-4">
